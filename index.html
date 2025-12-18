@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="E-Mall - Your one-stop online shopping destination">
+  <title>E-Mall</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/mall.png" type="image/png">
+</head>
+
+<body>
+  <section id="home" class="page active">
+    <div class="home-container">
+      <h1 class="title">E-Mall</h1>
+      <p class="slogan">click on your mouse to get out of your house</p>
+      <p class="welcome">Welcome to the best online mall</p>
+      <h2 class="action">What are you planning to do</h2>
+      <div class="buttons">
+        <button class="btn pink" onclick="scrollToSection('shopping')">Shop</button>
+        <button class="btn green" onclick="scrollToSection('play')">Play</button>
+        <button class="btn purple" onclick="scrollToSection('supermarket')">Supermarket</button>
+        <button class="btn yellow" onclick="scrollToSection('contact')">About Us</button>
+      </div>
+    </div>
+  </section>
+
+  <button id="backHomeBtn" aria-label="Back to home"
+    onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth' })">
+    ⬅ Back to Home
+  </button>
+
+  <section id="shopping" class="page">
+    <header class="sticky-header">
+      <nav>
+        <h2>E-Shopping</h2>
+        <input type="text" id="search" placeholder="Search product..." aria-label="Search products"
+          oninput="searchProduct()" />
+        <div class="icons">
+          <button id="cartBtn" aria-label="View cart" onclick="toggleCart()">🛒 Cart <span id="cart-count"
+              class="cart-count">0</span></button>
+          <button id="favBtn" aria-label="View favorites" onclick="toggleFavorites()">❤️ Favorites <span id="fav-count"
+              class="cart-count">0</span></button>
+        </div>
+      </nav>
+      
+      <div class="shop-pics">
+        <button class="shop-pic" onclick="scrollToAndShowSection('women')">
+          <div class="image-wrapper">
+            <span class="discount-label">50%</span>
+            <img src="assets/women.jpg" alt="Women's fashion" loading="lazy" />
+          </div>
+          <p>Women</p>
+        </button>
+        <button class="shop-pic" onclick="scrollToAndShowSection('men')">
+          <div class="image-wrapper">
+            <span class="discount-label">50%</span>
+            <img src="assets/men.jpg" alt="Men's fashion" loading="lazy" />
+          </div>
+          <p>Men</p>
+        </button>
+
+      </div>
+    </header>
+
+    <main>
+      <section id="women" class="shop-section"></section>
+      <section id="men" class="shop-section"></section>
+    </main>
+
+    <!-- Cart Popup -->
+    <div id="cart-popup" class="popup hidden" aria-hidden="true">
+      <div class="popup-header">
+        <h3>Your Cart</h3>
+        <button class="close-popup" onclick="toggleCart()" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-items">
+        <!-- Cart items will be inserted here -->
+      </div>
+      <div class="cart-total">
+        <h4>Total: $<span id="cart-total">0.00</span></h4>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+
+    <!-- Favorites Popup -->
+    <div id="favorites-popup" class="popup hidden" aria-hidden="true">
+      <div class="popup-header">
+        <h3>Your Favorites</h3>
+        <button class="close-popup" onclick="toggleFavorites()" aria-label="Close favorites">×</button>
+      </div>
+      <div class="fav-items">
+        <!-- Favorite items will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <section id="play" class="page">
+    <h2>E-Playing</h2>
+    <p>Excellent choice you just have to pick a game and let the adventure start!</p>
+    <div class="games">
+      <div class="game" onclick="showGame('quiz-game')" role="button" tabindex="0">
+        <img src="assets/quiz.jpg" alt="Multiple Choice Quiz" loading="lazy" />
+        <p>Multiple Choice Quiz</p>
+      </div>
+      <div class="game" onclick="showGame('memory-game')" role="button" tabindex="0">
+        <img src="assets/memory.jpg" alt="Memory Card Game" loading="lazy" />
+        <p>Memory Card Game</p>
+      </div>
+      <div class="game" onclick="showGame('rps-game')" role="button" tabindex="0">
+        <img src="assets/rps.jpg" alt="Rock Paper Scissors" loading="lazy" />
+        <p>Rock-Paper-Scissors</p>
+      </div>
+    </div>
+
+    <div id="quiz-game" class="game-wrapper ">
+      <h3>Quiz Game</h3>
+      <p id="quiz-score">Score: 0/1</p>
+      <p id="quiz-question">Loading question...</p>
+      <div id="quiz-options"></div>
+      <p id="quiz-feedback"></p>
+      <button id="quiz-next" class="hidden">Next</button>
+      <button id="quiz-restart" class="hidden">Restart Quiz</button>
+    </div>
+
+    <div id="memory-game" class="game-wrapper hidden">
+      <h3>Memory Card Game</h3>
+      <p id="memory-moves">Moves: 0</p>
+      <p id="memory-pairs">Pairs Found: 0/6</p>
+      <div id="memory-board" class="memory-board"></div>
+      <p id="memory-message"></p>
+      <button id="memory-reset">Reset Game</button>
+    </div>
+
+    <div id="rps-game" class="game-wrapper hidden">
+      <h3>Rock Paper Scissors</h3>
+      <p id="rps-score">Player: 0 | Computer: 0 | Ties: 0</p>
+      <div class="rps-buttons">
+        <button onclick="playRPS('rock')">rock</button>
+        <button onclick="playRPS('paper')">paper</button>
+        <button onclick="playRPS('scissors')">scissors</button>
+      </div>
+      <p id="rps-result"></p>
+      <button id="rps-reset">Reset</button>
+    </div>
+  </section>
+
+  <section id="supermarket" class="page">
+    <h1>Coming Soon</h1>
+    <p>Sorry, our supermarket is not ready yet. Please come back later!</p>
+  </section>
+
+  <section id="contact" class="page">
+    <h1>About Us</h1>
+    <p>This website is Pro Palestinian</p>
+    <a href="aboutus.html" target="_blank">Open page</a>
+
+    <footer>
+      <div class="testimonials-section">
+        <h3>What Our Clients Say</h3>
+        <div id="testimonials"></div>
+      </div>
+
+      <h3>Contact Us</h3>
+      <form id="contact-form" action="https://formspree.io/f/mqalpyzw" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send</button>
+        <p id="form-status"></p>
+      </form>
+    </footer>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

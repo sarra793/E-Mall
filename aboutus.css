@@ -1,0 +1,176 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	background: #fffdf7;
+	color: #222;
+	line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+	background: darkolivegreen;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 15px;
+	padding: 1rem;
+}
+
+nav a {
+	color: white;
+	font-style:italic;;
+	padding: 10px;
+	font-weight: bold;
+	transition: background 0.3s;
+}
+
+nav a:hover {
+	background-color: #4f5d00;
+	border-radius: 5px;
+}
+
+/* Headings */
+h1,
+h2 {
+	color: #b30000;
+}
+
+/* Sections */
+section {
+	padding: 20px;
+}
+
+/* Flag Image */
+img {
+	width: 100%;
+	max-height: 450px;
+	display: block;
+	margin: 0 auto 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Images */
+.grid-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.grid-gallery div {
+	background: #f9f9f9;
+	padding: 10px;
+	border-radius: 12px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.grid-gallery img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	object-fit: cover;
+	margin-bottom: 10px;
+}
+
+.grid-gallery p {
+	font-size: 0.95rem;
+	color: #333;
+}
+
+/* Unordered list with inline-block items */
+ul.unstyled {
+	list-style: square;
+	padding-left: 1.5rem;
+}
+
+ul.unstyled li {
+	display: inline-block;
+	width: 48%;
+	margin-bottom: 10px;
+}
+
+/* YouTube Video */
+iframe {
+	display: block;
+	margin: 20px auto;
+	border: 3px solid #b30000;
+	border-radius: 10px;
+}
+
+/* Table */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+	background-color: #fff;
+}
+
+th,
+td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+}
+
+th {
+	background: #eee;
+}
+
+/* Contact Form */
+form input,
+form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+form textarea {
+	height: 100px;
+}
+
+button {
+	background: #b30000;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #8b0000;
+}
+
+/* Footer */
+footer {
+	background: #111;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	font-size: 0.9rem;
+}
+
+footer a {
+	color: chartreuse;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+footer a:hover {
+	text-decoration: underline;
+	font-style:italic;
+}
+
+/* Pseudo class for list hover effect */
+ul.unstyled li:hover {
+	background-color: #f0f0f0;
+	border-left: 3px solid #b30000;
+	padding-left: 8px;
+	transition: 0.2s;
+}
